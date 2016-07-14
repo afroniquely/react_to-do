@@ -1,12 +1,12 @@
 'use strict'
+const env     = process.env.NODE_DEV || 'development';
+const DEV     = env==='development';
+const dotenv  = (DEV) ? require('dotenv').config() : undefined;
 
 const express = require('express')
 const tracker = require('morgan')
 const path    = require('path')
 const port    = process.env.PORT || 3009
-const env     = process.env.NODE_DEV || 'development';
-const DEV     = env==='development';
-const dotenv  = (DEV) ? require('dotenv').config() : undefined;
 const app     = express();
 
 app.use(tracker('dev'))
